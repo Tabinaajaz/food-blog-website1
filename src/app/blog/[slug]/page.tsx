@@ -24,7 +24,7 @@ export default async function Blog({ params: { slug } }: { params: { slug: strin
           <h2 className="font-semibold text-gray-800 mb-4 text-2xl uppercase">
             {data.name}
           </h2>
-          <img src={data.imageUrl} alt={data.title} />
+         ` <img src={data.imageUrl} alt={data.title} />`
 
           <section className="text-lg leading-normal text-gray-700"> 
             <PortableText value={data.content} />
