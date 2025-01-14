@@ -2,6 +2,7 @@
 import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import { getStaticPaths } from "@/app/compenont/getStaticPaths";
+import Image from "next/image";
 
 export default async function Blog({ params: { slug } }: { params: { slug: string } }) {
   const query = `*[_type == "blog" && slug.current == $slug][0]{
@@ -24,11 +25,12 @@ export default async function Blog({ params: { slug } }: { params: { slug: strin
           <h2 className="font-semibold text-gray-800 mb-4 text-2xl uppercase">
             {data.name}
           </h2>
-         ` <img src={data.imageUrl} alt={data.title} />`
+          <Image src={data.imageUrl} alt={data.title}></Image> 
 
           <section className="text-lg leading-normal text-gray-700"> 
             <PortableText value={data.content} />
           </section>
+    
         </div>
       </div>
     </div>
