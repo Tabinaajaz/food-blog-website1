@@ -40,7 +40,7 @@ export const blog = defineType({
       defineField  ({
         title: 'Image URL',
         name: 'imageUrl',
-        type: 'url'
+        type: 'image'
       }),
       defineField({
         title: 'Content', 

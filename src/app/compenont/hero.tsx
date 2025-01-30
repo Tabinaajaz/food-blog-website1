@@ -1,14 +1,21 @@
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
 
-
 const Hero = ({ data }: { data: Blog }) => {
+  const imageUrl = urlFor(data.poster).url();
+
   return (
     <div className="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-      <Image className="lg:h-48 md:h-36 w-full object-cover object-center"
-        src={urlFor(data.poster).url()}
-        alt={data.title}></Image>
-    
+      {imageUrl && (
+        <Image
+          className="lg:h-48 md:h-36 w-full object-cover object-center"
+          src={imageUrl}
+          alt={data.title}
+          layout="responsive" // Adjusts image size dynamically
+          width={800} // Expected width
+          height={600} // Expected height
+        />
+      )}
       <div className="p-6">
         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
           {data.title}
